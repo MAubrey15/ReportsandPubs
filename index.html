@@ -3,16 +3,10 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-
   <title>Reports and Publications</title>
 
   <link rel="stylesheet" href="https://wet-boew.github.io/themes-dist/GCWeb/GCWeb/css/theme.min.css">
   <link rel="stylesheet" href="style.css">
-
-  
-<script type="module" src="https://cdn.design-system.alpha.canada.ca/gcds-components/gcds.esm.js"></script>
-<link rel="stylesheet" href="https://cdn.design-system.alpha.canada.ca/gcds-components/gcds.cs
-
 </head>
 
 <body>
@@ -25,25 +19,23 @@
 
     <!-- FILTERS -->
     <div class="col-md-3 push-down">
-      <aside id="sidebar">
+      <aside>
         <details open>
           <summary class="bg-primary text-center">Filter options</summary>
 
-          <form id="filterForm" class="mrgn-lft-md mrgn-rght-md">
+          <form class="mrgn-lft-md mrgn-rght-md">
             <div class="row mrgn-tp-lg mrgn-bttm-lg">
 
-              <!-- Type -->
               <div class="form-group">
                 <label for="filterType">Type:</label>
                 <select id="filterType" class="form-control">
                   <option value="">All types</option>
                   <option value="Strategies, plans and policies">Strategies, plans and policies</option>
-                  <option value="Annual report">Annual reports</option>
+                  <option value="Annual report">Annual report</option>
                   <option value="Audits and evaluations">Audits and evaluations</option>
                 </select>
               </div>
 
-              <!-- Year -->
               <div class="form-group">
                 <label for="filterYear">Date of publication:</label>
                 <select id="filterYear" class="form-control">
@@ -55,7 +47,7 @@
               </div>
 
               <div class="col-md-12 mrgn-tp-lg">
-                <button type="button" class="btn btn-default full-width" id="resetFilters">
+                <button type="button" class="btn btn-default" id="resetFilters">
                   Reset Filters
                 </button>
               </div>
@@ -78,98 +70,92 @@
         </div>
       </div>
 
- 
-<!-- CARDS -->
-<div class="cards-container">
-  <div class="row">
+      <!-- CARDS -->
+      <div class="cards-container">
 
-    <!-- Card 1 -->
-    <div class="col-md-12 data-row"
-         data-type="Strategies, plans and policies"
-         data-year="2022">
+        <!-- Card 1 -->
+        <div class="data-row" data-type="Strategies, plans and policies" data-year="2022">
+          <div class="operation-card">
 
-      <div class="gcds-card">
-        <div class="gcds-card__content">
-          <!-- ✅ Badge -->
-    <span class="gcds-badge">Strategies, plans and policies</span>
-          <h3 class="gcds-card__title">
-            <a href="https://www.canada.ca/en/department-national-defence/corporate/reports-publications/department-of-national-defence-accessibility-plan.html">
-              Department of National Defence Accessibility Plan
-            </a>
-          </h3>
-          
-          <p class="gcds-card__description">
-            <strong>Type:</strong> Strategies, plans and policies<br>
-            <strong>Date of publication:</strong> 2022
-          </p>
+            <div class="card-header">
+              <h3 class="card-title">
+                <a href="https://www.canada.ca/en/department-national-defence/corporate/reports-publications/department-of-national-defence-accessibility-plan.html">
+                  Department of National Defence Accessibility Plan
+                </a>
+              </h3>
+            </div>
+
+            <div class="card-content">
+              <div class="card-field">
+                <strong>Type:</strong>
+                <p>Strategies, plans and policies</p>
+
+                <strong>Date of publication:</strong>
+                <p>2022</p>
+              </div>
+            </div>
+
+          </div>
         </div>
+
+        <!-- Card 2 -->
+        <div class="data-row" data-type="Annual report" data-year="2019">
+          <div class="operation-card">
+
+            <div class="card-header">
+              <h3 class="card-title">
+                <a href="https://www.canada.ca/en/department-national-defence/corporate/reports-publications/administration-access-information-act-annual-reports-parliament/2018-19-dnd-annual-report-to-parliament-atia.html">
+                  2018–2019 Annual Report
+                </a>
+              </h3>
+            </div>
+
+            <div class="card-content">
+              <div class="card-field">
+                <strong>Type:</strong>
+                <p>Annual report</p>
+
+                <strong>Date of publication:</strong>
+                <p>2019</p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="data-row" data-type="Audits and evaluations" data-year="2021">
+          <div class="operation-card">
+
+            <div class="card-header">
+              <h3 class="card-title">
+                <a href="https://www.canada.ca/en/department-national-defence/corporate/reports-publications/audit-evaluation/evaluation-naval-force-development.html">
+                  Evaluation of Naval Force Development
+                </a>
+              </h3>
+            </div>
+
+            <div class="card-content">
+              <div class="card-field">
+                <strong>Type:</strong>
+                <p>Audits and evaluations</p>
+
+                <strong>Date of publication:</strong>
+                <p>2021</p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
       </div>
 
     </div>
-
-    <!-- Card 2 -->
-    <div class="col-md-12 data-row"
-         data-type="Annual report"
-         data-year="2019">
-
-      <div class="gcds-card">
-        <div class="gcds-card__content">
-           <!-- ✅ Badge -->
-    <span class="gcds-badge">Annual report</span>
-          <h3 class="gcds-card__title">
-            <a href="https://www.canada.ca/en/department-national-defence/corporate/reports-publications/administration-access-information-act-annual-reports-parliament/2018-19-dnd-annual-report-to-parliament-atia.html">
-              2018–2019 Annual Report to Parliament – Administration of the Access to Information Act
-            </a>
-          </h3>
-          <p class="gcds-card__description">
-            <strong>Type:</strong> Annual report<br>
-            <strong>Date of publication:</strong> 2019
-          </p>
-        </div>
-      </div>
-
-    </div>
-
-    <!-- Card 3 -->
-    <div class="col-md-12 data-row"
-         data-type="Audits and evaluations"
-         data-year="2021">
-
-      <div class="gcds-card">
-        <div class="gcds-card__content">
-           <!-- ✅ Badge -->
-    <span class="gcds-badge">Audits and evaluations</span>
-          
-
-
-          <h3 class="gcds-card__title">
-            <a href="https://www.canada.ca/en/department-national-defence/corporate/reports-publications/audit-evaluation/evaluation-naval-force-development.html">
-              Evaluation of Naval Force Development
-            </a>
-          </h3>
-          <p class="gcds-card__description">
-            <strong>Type:</strong> Audits and evaluations<br>
-            <strong>Date of publication:</strong> 2021
-          </p>
-        </div>
-      </div>
-
-    </div>
-
   </div>
-</div>
-
-
-
-    </div> <!-- col-md-9 -->
-
-  </div> <!-- ✅ row properly closed -->
-
 </main>
-
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="script.js"></script>
+
 </body>
 </html>
-
