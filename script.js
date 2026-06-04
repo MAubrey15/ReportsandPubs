@@ -6,31 +6,28 @@ $(document).ready(function () {
     const searchTerm = $('#searchOperations').val().toLowerCase();
 
     $('.data-row').each(function () {
-      const card = $(this);
+      const row = $(this);
+      const card = row.find('.operation-card');
 
-      const type = (card.data('type') || '').toLowerCase();
-      const year = (card.data('year') || '').toString().toLowerCase();
-      const text = card.text().toLowerCase();
+      const type = (row.data('type') || '').toLowerCase();
+      const year = (row.data('year') || '').toString().toLowerCase();
+      const text = row.text().toLowerCase();
 
       const typeMatch = typeFilter === '' || type === typeFilter;
       const yearMatch = yearFilter === '' || year === yearFilter;
       const searchMatch = searchTerm === '' || text.includes(searchTerm);
 
       if (typeMatch && yearMatch && searchMatch) {
-        card.show();
+        card.removeClass('hidden');
       } else {
-        card.hide();
+        card.addClass('hidden');
       }
     });
   }
 
-  // ✅ Dropdown filters (auto apply)
   $('#filterType, #filterYear').on('change', applyFilters);
-
-  // ✅ Live search (instant filtering)
   $('#searchOperations').on('input', applyFilters);
 
-  // ✅ Reset button
   $('#resetFilters').on('click', function () {
     $('#filterType').val('');
     $('#filterYear').val('');
@@ -38,6 +35,5 @@ $(document).ready(function () {
     applyFilters();
   });
 
-  // ✅ Initial load
   applyFilters();
 });
