@@ -1,4 +1,75 @@
 $(document).ready(function () {
+  let allReports = [];
+
+  // Load JSON data and populate the page
+  $.ajax({
+    url: 'clean_reports.json',
+    dataType: 'json',
+    success: function(data) {
+      allReports = data;
+      populateFilters();
+      renderCards();
+      applyFilters();
+    },
+    error: function() {
+      console.error('Failed to load reports data');
+    }
+  });
+
+  // Populate filter dropdowns with unique types and years
+  function populateFilters() {
+    // Get unique types
+    const types = [...new Set(allReports.map(report => report.type))].sort();
+    types.forEach(type => {
+      $('#filterType').append(`<option value="${type}">${type}</option>`);
+    });
+
+    // Get unique years and sort
+    const years = [...new Set(allReports.map(report => report.year))].sort((a, b) => a - b);
+    
+    // Populate year dropdowns
+    years.forEach(year => {
+      $('#filterYearStart').append(`<option value="${year}">${year}</option>`);
+      $('#filterYearEnd').append(`<option value="${year}">${year}</option>`);
+    });
+
+    // Set default values
+    if (years.length > 0) {
+      $('#filterYearStart').val(years[0]);
+      $('#filterYearEnd').val(years[years.length - 1]);
+    }
+  }
+
+  // Render all cards from JSON data
+  function renderCards() {
+    const container = $('.cards-container');
+    container.empty();
+
+    allReports.forEach(report => {
+      const card = `
+        <div class="data-row" data-type="${report.type}" data-year="${report.year}">
+          <div class="operation-card">
+            <div class="card-header">
+              <h3 class="card-title">
+                <a href="${report.link}">
+                  ${report.title}
+                </a>
+              </h3>
+            </div>
+            <div class="card-content">
+              <div class="card-field">
+                <strong>Type:</strong>
+                <p>${report.type}</p>
+                <strong>Date of publication:</strong>
+                <p>${report.year}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      `;
+      container.append(card);
+    });
+  }
 
   function applyFilters() {
     const typeFilter = $('#filterType').val().toLowerCase();
@@ -34,11 +105,12 @@ $(document).ready(function () {
 
   $('#resetFilters').on('click', function () {
     $('#filterType').val('');
-    $('#filterYearStart').val('');
-    $('#filterYearEnd').val('');
+    // Reset to first and last year
+    const firstOption = $('#filterYearStart option:first').val();
+    const lastOption = $('#filterYearEnd option:last').val();
+    $('#filterYearStart').val(firstOption);
+    $('#filterYearEnd').val(lastOption);
     $('#searchOperations').val('');
     applyFilters();
   });
-
-  applyFilters();
 });
